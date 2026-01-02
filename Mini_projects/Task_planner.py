@@ -51,6 +51,7 @@ def main():
             choice=int(input("Enter your choice: "))
             if choice==6:
                 print("==Thank you for using To-Do List Manager==")
+                break
             elif choice==1:
                 add_task()
             elif choice==2:
@@ -65,3 +66,5 @@ def main():
                 print("Invalid choice. Please try again.")
     except ValueError:
         print("Invalid input. Please enter a number.")
+
+main()
