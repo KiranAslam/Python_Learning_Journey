@@ -50,7 +50,9 @@ def main():
             print("=======================================")
             choice=int(input("Enter your choice: "))
             if choice==6:
-                print("==Thank you for using To-Do List Manager==")
+                print("=======================================")
+                print("Thank you for using To-Do List Manager")
+                print("=======================================")
                 break
             elif choice==1:
                 add_task()
