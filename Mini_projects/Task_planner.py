@@ -75,9 +75,7 @@ def delete_task():
             with open("tasks.txt","w") as f:
                 for index, task in enumerate(tasks,start=1):
                     if index==task_num:
-
                         print(f"Task '{index}' deleted successfully!")
-                        print("=======================================")
                     else:
                         f.write(task)
     except ValueError:
