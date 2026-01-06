@@ -1,0 +1,10 @@
+item1=input("Enter first item name: ")
+price1=int(input("Enter price first item name: "))
+item2=input("Enter second item name: ")
+price2=int(input("Enter price second item name: "))
+item3=input("Enter third item name: ")
+price3=int(input("Enter price third item name: "))
+total_price=(price1+price2+price3)
+tax=total_price*(5/100)
+final_price=total_price+tax
+print("The final total of the grocery Bill including tax is: ", final_price)
