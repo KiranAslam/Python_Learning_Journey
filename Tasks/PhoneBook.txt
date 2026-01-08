@@ -1,0 +1,21 @@
+Kiran: 90478570
+samiya: 00785798
+mariyam: 89039859
+rehan: 91585962
+stop: 89589575
+quit: & C:/Users/AQT/AppData/Local/Programs/Python/Python313/python.exe "c:/Users/AQT/Desktop/New folder/python programming/file_handling.py"
+kiran: 93051398
+samiya: 080953
+mariyam: 97957058
+stop: & C:/Users/AQT/AppData/Local/Programs/Python/Python313/python.exe "c:/Users/AQT/Desktop/New folder/python programming/file_handling.py"
+kiran: 012358
+Asslam: 3125697
+Mariyam: 9587432
+stop: stop
+& C:/Users/AQT/AppData/Local/Programs/Python/Python313/python.exe "c:/Users/AQT/Desktop/New folder/python programming/file_handling.py": & C:/Users/AQT/AppData/Local/Programs/Python/Python313/python.exe "c:/Users/AQT/Desktop/New folder/python programming/file_handling.py"
+kiran: 0934789
+Aslam: 040787589
+Kiran: 907509
+Aslam: 387598475
+& c:/users/aqt/appdata/local/programs/python/python313/python.exe "c:/users/aqt/desktop/new folder/python programming/file_handling.py": & C:/Users/AQT/AppData/Local/Programs/Python/Python313/python.exe "c:/Users/AQT/Desktop/New folder/python programming/file_handling.py"
+Kiran: 09879852
