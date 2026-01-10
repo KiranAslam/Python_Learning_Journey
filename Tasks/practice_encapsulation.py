@@ -53,6 +53,21 @@ class DoorLock:
         print("Now door is locked!")
 
 my_door=DoorLock(1234)
-my_door.__pin=0000
 my_door.unlock(1234)
 my_door.locked()
+
+#Task 04
+
+class Employee:
+    def __init__(self,name,salary):
+        self.name=name
+        self._salary=salary
+class Manager(Employee):
+    def show_bonus_salary(self):
+        bonus=self._salary+5000
+        print(f"Salary after Bonus: {bonus}")
+
+e1=Employee("kiran",10000000)
+m1=Manager("samiya",10000000)
+print(e1._salary)
+m1.show_bonus_salary()
