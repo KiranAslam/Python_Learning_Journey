@@ -33,5 +33,26 @@ class Student:
         return self.__marks
 
 s1=Student("kiran",100)
-print(s1.set_marks(90))
+s1.set_marks(90)
 print(s1.get_marks())
+
+#Task 03
+class DoorLock:
+    def __init__(self,pin):
+        self.__pin=pin
+        self.__is_lock=True
+    def unlock(self,entered_pin):
+        self.entered_pin=entered_pin
+        if self.entered_pin==self.__pin:
+            self.__is_lock=False
+            print("door unloacked Welcome!")
+        else:
+            print("Access denaied Wrong PIN!")
+    def locked(self):
+        self.__is_lock=True
+        print("Now door is locked!")
+
+my_door=DoorLock(1234)
+my_door.__pin=0000
+my_door.unlock(1234)
+my_door.locked()
