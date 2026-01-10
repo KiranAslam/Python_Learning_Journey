@@ -71,3 +71,23 @@ e1=Employee("kiran",10000000)
 m1=Manager("samiya",10000000)
 print(e1._salary)
 m1.show_bonus_salary()
+
+#Task 05
+
+class Profile:
+    def __init__(self,username,email,password):
+        self.__username=username
+        self.__email=email
+        self.__password=password
+    def  update_password(self,old_password,new_password):
+        if old_password==self.__password:
+            self.__password=new_password
+            print(f"Password updated successfully!")
+        else:
+            print("Incorrect old password!")
+    def display_info(self):
+        print(f"Username={self.__username}, Email={self.__email}")
+p1=Profile("Kiran","kiranaslamsgr@gmail.com","kiran123")
+p1.update_password("kiran","kiranaslam")
+p1.update_password("kiran123","kiranaslam")
+p1.display_info()
