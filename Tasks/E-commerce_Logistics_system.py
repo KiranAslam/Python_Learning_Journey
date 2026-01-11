@@ -1,3 +1,4 @@
+#Logistics management system
 class Package:
     def __init__(self, tracking_id, weight):
         self.tracking_id = tracking_id
@@ -10,7 +11,6 @@ class StandardDelivery(Package):
         cost = (self.weight * self._base_rate) + 50
         print(f"📦 Standard Shipping [{self.tracking_id}]: Rs.{cost}")
         return cost
-
 class ExpressDelivery(Package):
     def calculate_cost(self):
         cost = (self.weight * self._base_rate) * 2
