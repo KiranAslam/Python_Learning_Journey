@@ -1,3 +1,4 @@
+# Hospital Management System
 class Staff:
     def __init__(self, name, staff_id, base_salary):
         self.name = name
