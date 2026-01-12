@@ -1,46 +1,46 @@
-# Hospital Management System
-class Staff:
-    def __init__(self, name, staff_id, base_salary):
-        self.name = name
-        self.staff_id = staff_id
-        self._base_salary = base_salary
-
-    def perform_duty(self):
-        print("Staff is performing generic duties...")
-class Doctor(Staff):
-    def perform_duty(self):
-        print(f"Dr. {self.name} is examining patients and prescribing medicines. 🩺")
-
-    def calculate_pay(self):
-        return self._base_salary + 20000
-
-class Nurse(Staff):
-    def perform_duty(self):
-        print(f"Nurse {self.name} is monitoring vitals and giving injections. 💉")
-
-    def calculate_pay(self):
-        return self._base_salary + 5000
-class Patient:
-    def __init__(self, p_id, name, disease, bill):
-        self.__p_id = p_id          
-        self.__disease = disease    
-        self.__bill = bill          
-        self.name = name            
-
-    def get_patient_details(self, entered_id):
-        if entered_id == self.__p_id:
-            print(f"Patient: {self.name} | Disease: {self.__disease} | Bill: Rs.{self.__bill}")
+class patient:
+    def __init__(self,patient_ID,disease):
+        self.__patient_ID=patient_ID
+        self.__disease=disease
+        self.secret_pin="1234"
+    def get_details(self,pin):
+        self.pin=pin
+        if self.pin==self.secret_pin:
+            print(f"Patient ID: {self.__patient_ID} , Diseases: {self.__disease}")
         else:
-            print(f"Access Denied! ID {entered_id} is incorrect for patient {self.name}.")
-doc1 = Doctor("Kiran", "D101", 150000)
-nurse1 = Nurse("Samiya", "N502", 60000)
-patient1 = Patient("P786", "Zayan", "Flu", 2500)
-print("--- Hospital Staff Management ---")
-hospital_staff = [doc1, nurse1]
-for member in hospital_staff:
+            print("Incorrect Pin!")
+    
+class person:
+    def __init__(self,name,age,gender):
+        self.name=name
+        self.age=age
+        self.gender=gender
+
+class doctor(person):
+    def __init__(self,name,age,gender,spacilization):
+        self.spacilization=spacilization
+        super().__init__(name,age,gender)
+    def perform_duty(self):
+        print(f"Dr. {self.name} {self.spacilization} is doing treatment.")
+
+class Nurse(person):
+    def __init__(self,name,age,gender,floor_num):
+        self.floor_num=floor_num
+        super().__init__(name,age,gender)
+    def perform_duty(self):
+        print(f"Nurse {self.name} is taking care of patients on floor {self.floor_num}.")
+
+D1=doctor("Naeem",35,"Male","Heart Surgeon")
+N1=Nurse("Asma",25,"female",2)
+p1=patient(21,"heart attack")
+N2=Nurse("Farhan",20,"male",1)
+p2=patient(13,"food posioning")
+
+staff_Lists=[D1,N1,N2]
+for member in staff_Lists:
     member.perform_duty()
-    print(f"Monthly Salary: Rs.{member.calculate_pay()}")
-    print("-" * 30)
-print("\n--- Patient Security Check ---")
-patient1.get_patient_details("P000")
-patient1.get_patient_details("P786")
+
+print("==security checck==")
+p1.get_details("00000")
+p1.get_details("1234")
+p2.get_details("1234")
