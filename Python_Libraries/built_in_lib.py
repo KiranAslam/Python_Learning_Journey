@@ -1,5 +1,12 @@
 import math
 import random
+from datetime import datetime
+
+now=datetime.now()
+print(f"current time:{now}")
+print(f"year: {now.year}")
+formatted_date = now.strftime("%d/%m/%Y")
+print(f"formatted date:{formatted_date} ")
 
 print(math.sqrt(16))
 print(math.log(30))
