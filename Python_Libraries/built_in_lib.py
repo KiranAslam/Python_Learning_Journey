@@ -28,15 +28,20 @@ for s in student_list:
     seat_no_start+=1
 
 secret_number=random.randint(1,100)
-while True:
+attempts=0
+print("You have 5 attemps only!")
+while attempts<5:
        user_guess=int(input("Guess The number Between 1-100: "))
+       attempts+=1
        if user_guess<secret_number:
             print("Too Low!")
        elif user_guess>secret_number:
             print("Too High!")
        elif user_guess==secret_number:
-            print("You won ! You Guess The Right number.")
+            print(f" You won! You guessed it in {attempts} attempts.")
             break 
        else:
           print("Invalid input!")
+else:
+    print(f"Game over! The Number is {secret_number}.")
 
