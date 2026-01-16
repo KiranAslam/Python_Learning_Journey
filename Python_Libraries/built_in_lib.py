@@ -2,12 +2,6 @@ import math
 import random
 from datetime import datetime
 
-now=datetime.now()
-print(f"current time:{now}")
-print(f"year: {now.year}")
-formatted_date = now.strftime("%d/%m/%Y")
-print(f"formatted date:{formatted_date} ")
-
 print(math.sqrt(16))
 print(math.log(30))
 print(math.ceil(3.1))
@@ -52,3 +46,27 @@ while attempts<5:
 else:
     print(f"Game over! The Number is {secret_number}.")
 
+
+#Task 01
+now = datetime.now()
+current_time = now.strftime("%d-%m-%Y %I:%M %p")
+print(f"---  Welcome to Python SuperStore ---")
+print(f"Date & Time: {current_time}")
+print("-" * 40)
+bill_amount = float(input("Enter total bill amount: Rs. "))
+discount_percent = random.randint(5, 20)
+discount_value = (bill_amount * discount_percent) / 100
+final_price = bill_amount - discount_value
+payable_amount = math.ceil(final_price)
+print("-" * 40)
+print(f"Lucky Discount Applied: {discount_percent}%")
+print(f"Discount Amount: Rs. {discount_value}")
+print(f"Original Price: Rs. {bill_amount}")
+print(f"--- FINAL PAYABLE AMOUNT: Rs. {payable_amount} ---")
+print("-" * 40)
+print("Thank you for shopping with us!")
+now=datetime.now()
+print(f"current time:{now}")
+print(f"year: {now.year}")
+formatted_date = now.strftime("%d/%m/%Y")
+print(f"formatted date:{formatted_date} ")
