@@ -27,3 +27,16 @@ print(f"normalized prices: {normalized_price}")
 #task 03 (Z-score standardization)
 
 scores = np.array([88, 92, 70, 50, 100, 200])
+
+mean_val=np.mean(scores)
+std_val=np.std(scores)
+standardization=(scores-mean_val)/std_val
+print(f"Original score: {scores}")
+print(f"Mean value: {mean_val}")
+print(f"standard deviation: {std_val}")
+print(f"Standardized (Z-score) Data: {standardization}")
+
+#verification
+
+print(f"new mean value {np.mean(standardization).round()}")
+print(f"new std deviation {np.std(standardization)}")
