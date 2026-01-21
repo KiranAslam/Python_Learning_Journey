@@ -67,3 +67,52 @@ image=np.array([
 
 bright_image=image+50
 print(f"brightened image pixels: {bright_image}")
+
+#Task 06 (mean squared Error)
+
+actual = np.array([100, 200, 300 , 400,500])
+predicted = np.array([110, 190, 320,410,480])
+
+error=actual-predicted
+squared_error=error**2
+mse=np.mean(squared_error)
+print(f"Individual error : {error}")
+print(f"squared error : {squared_error}")
+print(f"MSE : {mse}")
+
+#Task 07 
+
+inputs=np.array([0.8, 0.9, 0.4])
+weights=np.array([10.0,8.0,2.0])
+
+prediction_score=np.dot(inputs,weights)
+print(f"Prediction score is : {prediction_score}")
+if prediction_score>15:
+    print("Loan approved")
+else:
+    print("Loan rejected")
+
+#Task 08 (broadcasting)
+
+data=np.array([[10, 20], 
+               [30, 40], 
+               [50, 60]])
+adjustment=np.array([10,15])
+new_data=data+adjustment
+print(f"original data {data}")
+print(f"adjusted data {new_data}")
+
+#Task 09
+y_true=np.array([1,0,1,1,0])
+y_predicted=np.array([0.9, 0.1, 0.8, 0.4, 0.2])
+
+abs_error=abs(y_true-y_predicted)
+mean_error=np.mean(abs_error)
+arg_max=np.argmax(y_true)
+print(f"Arg max value {arg_max}")
+print(f"absolute error {abs_error}")
+print(f"Mean Error {mean_error}")
+if mean_error<0.2:
+    print("Model is good")
+else:
+    print("model needs training")
