@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np 
+import random
 
 #TAsk 01
 single_plant=np.array([15.5, 3.2, 28.0])
@@ -139,3 +140,19 @@ print(f"final classification: {labels}")
 
 #Task 13
 
+students_data=np.array([[4,70],
+                        [3,60],
+                        [8,90],
+                        [6,80]])
+
+mean_val=np.mean(students_data,axis=0)
+std_val=np.std(students_data,axis=0)
+normalized_data = (students_data - mean_val) / std_val
+weights=np.random.rand(2,1)
+scores=np.dot(normalized_data,weights)
+lebals=np.where(scores>0 ,'pass','fail')
+print("--- Prediction Results ---")
+print("Scores:\n", scores)
+print("\nFinal Decisions:\n", lebals)
+pass_count=np.sum(lebals=='pass')
+print(f"total students passed: {pass_count}")
