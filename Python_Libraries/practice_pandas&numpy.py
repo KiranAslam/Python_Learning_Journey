@@ -116,3 +116,26 @@ if mean_error<0.2:
     print("Model is good")
 else:
     print("model needs training")
+
+#Task 10
+weights=np.zeros([3,2])
+line_point=np.linspace(0,10,5)
+print(f"initial weights: {weights}")
+print(f"line points: {line_point}")
+
+#task 11 (Matrix Transpose)
+
+X=np.array([[1,2],[3,4],[5,6]])
+X_T=X.T
+print(f"original shape {X.shape}")
+print(f"transposed shape {X_T.shape}")
+
+#Task 12
+
+probs=np.array([0.1, 0.8, 0.4, 0.9, 0.3])
+labels=np.where(probs>0.5,1,0)
+print(f"Model Probabilities:{probs}")
+print(f"final classification: {labels}")
+
+#Task 13
+
