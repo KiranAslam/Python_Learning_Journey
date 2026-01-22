@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np 
 import random
 
+#========Practice numpy========
 #TAsk 01
 single_plant=np.array([15.5, 3.2, 28.0])
 plant_datasets=np.array([
@@ -81,7 +82,7 @@ print(f"Individual error : {error}")
 print(f"squared error : {squared_error}")
 print(f"MSE : {mse}")
 
-#Task 07 
+#Task 07 (dot product)
 
 inputs=np.array([0.8, 0.9, 0.4])
 weights=np.array([10.0,8.0,2.0])
@@ -156,3 +157,54 @@ print("Scores:\n", scores)
 print("\nFinal Decisions:\n", lebals)
 pass_count=np.sum(lebals=='pass')
 print(f"total students passed: {pass_count}")
+
+#=======Practice pandas=======
+
+#Task 01 
+data=np.array([ [4,70],
+                [3,60],
+                [8,90],
+                [6,80]])
+df=pd.DataFrame(data, columns=["Hours","Attendence"])
+print("Student data")
+print(df)
+
+data_dic={
+    'Name': ['Samiya', 'Rehan', 'Kiran', 'Aslam'],
+    'Hours': [4, 3, 8, 6],
+    'Attendance': [70, 60, 90, 80]
+}
+df1=pd.DataFrame(data_dic)
+print("student data")
+print(df1)
+print(df1.describe())
+print(df1["Name"])
+print(df1.shape)
+print(df1.head(2))
+print(df1.tail(1))
+print(df1.info())
+
+#Task 02 Selection
+position=df.iloc[0:2,0:2]
+print(position)
+print(df.loc[0,"Hours"])
+
+max_att=df["Attendence"].max()
+print(f"max attendence {max_att}")
+mean_att=df["Attendence"].mean()
+print(f"mean of Attendence {mean_att}")
+
+#filtering 
+busy_stud=df[df["Hours"]>5]
+print(f"busy student list:\n{busy_stud}")
+
+data = {
+    'Name': ['Ali', 'Sara', 'Zain', 'Dua', 'Ahmed', 'Hira'],
+    'Marks': [85, 92, 500, 78, -10, 88]  
+}
+df2=pd.DataFrame(data)
+clean_data=df2[(df2["Marks"]>0) & (df2["Marks"]<100)]
+print(f"cleaned data: { clean_data}")
+print(f"original data: {df2}")
+print(f"Mean of original data {df2["Marks"].mean()}")
+print(f"Mean of cleaned data: {clean_data["Marks"].mean()}")

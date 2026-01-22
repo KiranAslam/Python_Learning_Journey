@@ -1,0 +1,20 @@
+[
+    {
+        "order_id": "F5B3E39D",
+        "customer": "Kiran",
+        "date": "2026-01-17 21:53",
+        "total": 359000.0,
+        "items": [
+            {
+                "product": "MacBook M2",
+                "price": 350000,
+                "qty": 1
+            },
+            {
+                "product": "Denim Jacket",
+                "price": 4500,
+                "qty": 2
+            }
+        ]
+    }
+]
