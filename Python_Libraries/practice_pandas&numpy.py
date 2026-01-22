@@ -188,12 +188,10 @@ print(df1.info())
 position=df.iloc[0:2,0:2]
 print(position)
 print(df.loc[0,"Hours"])
-
 max_att=df["Attendence"].max()
 print(f"max attendence {max_att}")
 mean_att=df["Attendence"].mean()
 print(f"mean of Attendence {mean_att}")
-
 #filtering 
 busy_stud=df[df["Hours"]>5]
 print(f"busy student list:\n{busy_stud}")
@@ -208,7 +206,6 @@ print(f"cleaned data: { clean_data}")
 print(f"original data: {df2}")
 print(f"Mean of original data {df2["Marks"].mean()}")
 print(f"Mean of cleaned data: {clean_data["Marks"].mean()}")
-
 #Tassk 03 (Missing values)
 rawdata={
     "Name":["kiran","Rehan","samiya","Mariyam","Aslam","Noor"],
@@ -223,3 +220,4 @@ print(df3)
 #Also we drop the value
 #delete_val=df3.dropna()
 #print(delete_val)
+
