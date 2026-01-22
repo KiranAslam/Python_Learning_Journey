@@ -188,10 +188,18 @@ print(df1.info())
 position=df.iloc[0:2,0:2]
 print(position)
 print(df.loc[0,"Hours"])
+<<<<<<< HEAD
+=======
+
+>>>>>>> 588aaf5f15e521694828f5b42a85d8f3687adca5
 max_att=df["Attendence"].max()
 print(f"max attendence {max_att}")
 mean_att=df["Attendence"].mean()
 print(f"mean of Attendence {mean_att}")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 588aaf5f15e521694828f5b42a85d8f3687adca5
 #filtering 
 busy_stud=df[df["Hours"]>5]
 print(f"busy student list:\n{busy_stud}")

@@ -1,0 +1,103 @@
+#Task 1 & 2
+try:
+    num=int(input("enter a number: "))
+    result=100/num
+except ValueError:
+    print("Please enter a valid number.")
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+else:
+    print("result is:", result)
+finally:
+    print("process completed")
+
+#Task 3
+try:
+    with open("text1.txt","r") as f:
+       content=f.read()
+except FileNotFoundError:
+    print("file cannot exits")
+else:
+       print("content",content)
+
+#Task 4
+try:
+   list=[1,4,5,6,7,8]
+   item=(list[5])
+
+except IndexError:
+    print("Index out of bounds")
+else:
+    print("item is:", item)
+#Task 5
+try: 
+    num = int(input("enter a number:"))
+    result=100/num
+except (ValueError,ZeroDivisionError):
+    print("Invalid input or division by zero.")
+
+else:
+    print(result)
+#Task 6
+try:
+    f=open("text.txt","w")
+    f.write("hello kiran Aslam")
+except Exception as e:
+    print("error",e) 
+else:
+       print("content",f)
+finally:
+    f.close()
+    print("file as been closed succesfully")
+
+#Task 7
+try:
+    email=input("Enter your email: ")
+    if "@" not in email:
+        raise ValueError("@ is missing in the email address")
+except ValueError as e:
+    print(e)
+else:
+    print(email,"Email is valid")
+finally:
+    print("verfication is completed")
+
+#Task 8
+try:
+    age=int(input("Enter your age: "))
+    if age<0:
+        raise ValueError("age cannot be negative!")
+    elif age<18:
+        raise ValueError("you are not eligible to vote")
+except ValueError as e:
+    print("error",e)
+else:
+    print("you are eligible to vote")
+
+
+#Task 9
+try:
+    prices = {"apple": 100, "banana": 50, "orange": 80}
+    user=input("Enter the fruit name: ")
+    if user not in prices:
+        raise KeyError("The fruite is not in dictionary")
+except KeyError as e:
+    print(e)
+else:
+    print("Price of", user, "is", prices[user])
+#Task 10
+try:
+    balance=10000
+    amount=int(input("Enter the amount to wwithdraw: "))
+    if amount>balance:
+        raise ValueError("Insufficient balance")
+except ValueError as e:
+    print(e)
+except ValueError:
+    print("Invalid input")
+else:
+        updated_balance=balance-amount
+        print("withdrawal successful. Updated balance is:", updated_balance)
+
+finally:
+    print("Thank you.")
