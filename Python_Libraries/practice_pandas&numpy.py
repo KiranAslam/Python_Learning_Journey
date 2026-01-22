@@ -208,3 +208,18 @@ print(f"cleaned data: { clean_data}")
 print(f"original data: {df2}")
 print(f"Mean of original data {df2["Marks"].mean()}")
 print(f"Mean of cleaned data: {clean_data["Marks"].mean()}")
+
+#Tassk 03 (Missing values)
+rawdata={
+    "Name":["kiran","Rehan","samiya","Mariyam","Aslam","Noor"],
+    "Age" :[21,np.nan,14,np.nan,45,22],
+    "score":[80,90,np.nan,70,np.nan,75]
+}
+df3=pd.DataFrame(rawdata)
+print(df3.isnull())
+print("\nMissing values in each column:\n", df3.isnull().sum())
+fill_val=df3["Age"].fillna(df3["Age"].mean(),inplace=True)
+print(df3)
+#Also we drop the value
+#delete_val=df3.dropna()
+#print(delete_val)
