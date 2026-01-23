@@ -242,3 +242,12 @@ total_sales=df_sales.groupby('Store').sum()
 print(f"Total sales\n {total_sales}")
 items_sales=df_sales.groupby(['Store','Item'])["Sales"].sum()
 print(f"each Items sales\n{items_sales}")
+
+sales_data = {
+    'Store': ['A', 'B', 'A', 'B', 'A', 'B'],
+    'Sales': [100, 200, 150, 300, 120, 250],
+    'Profit': [20, 50, 30, 80, 25, 60]
+}
+df_store=pd.DataFrame(sales_data)
+summary=df_store.groupby('Store').agg(["sum","mean","max"])
+print(summary)
