@@ -188,18 +188,10 @@ print(df1.info())
 position=df.iloc[0:2,0:2]
 print(position)
 print(df.loc[0,"Hours"])
-<<<<<<< HEAD
-=======
-
->>>>>>> 588aaf5f15e521694828f5b42a85d8f3687adca5
 max_att=df["Attendence"].max()
 print(f"max attendence {max_att}")
 mean_att=df["Attendence"].mean()
 print(f"mean of Attendence {mean_att}")
-<<<<<<< HEAD
-=======
-
->>>>>>> 588aaf5f15e521694828f5b42a85d8f3687adca5
 #filtering 
 busy_stud=df[df["Hours"]>5]
 print(f"busy student list:\n{busy_stud}")
@@ -229,3 +221,24 @@ print(df3)
 #delete_val=df3.dropna()
 #print(delete_val)
 
+#Task 04(Grouping and aggregation)
+data = {
+    'Subject': ['Math', 'Physics', 'Math', 'Physics', 'Math', 'Physics'],
+    'Student': ['Ali', 'Sara', 'Zain', 'Dua', 'Ahmed', 'Hira'],
+    'Marks': [90, 80, 85, 75, 95, 70]
+}
+
+df_school=pd.DataFrame(data)
+subject_avg=df_school.groupby('Subject')['Marks'].mean()
+print(f"Subject wise average \n {subject_avg}")
+
+sales_data = {
+    'Store': ['A', 'B', 'A', 'B', 'A', 'B'],
+    'Item': ['Apple', 'Orange', 'Banana', 'Apple', 'Orange', 'Banana'],
+    'Sales': [100, 200, 150, 300, 120, 250]
+}
+df_sales = pd.DataFrame(sales_data)
+total_sales=df_sales.groupby('Store').sum()
+print(f"Total sales\n {total_sales}")
+items_sales=df_sales.groupby(['Store','Item'])["Sales"].sum()
+print(f"each Items sales\n{items_sales}")
