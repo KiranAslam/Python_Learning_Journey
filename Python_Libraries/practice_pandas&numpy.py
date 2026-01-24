@@ -266,3 +266,15 @@ grouping_movies=high_rated_movies.groupby("Genre").agg({
     'Budget_M': 'sum'
 })
 print(grouping_movies)
+
+#Task 06 (merging and joining)
+df_names = pd.DataFrame({
+    'ID': [1, 2, 3],
+    'Name': ['Ali', 'Sara', 'Zain']
+})
+df_scores = pd.DataFrame({
+    'ID': [1, 2, 4],
+    'Score': [85, 90, 77]
+})
+merged_df=pd.merge(df_names,df_scores,on="ID" , how="inner")
+print(merged_df)
