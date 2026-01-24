@@ -276,5 +276,17 @@ df_scores = pd.DataFrame({
     'ID': [1, 2, 4],
     'Score': [85, 90, 77]
 })
-merged_df=pd.merge(df_names,df_scores,on="ID" , how="inner")
-print(merged_df)
+merged_df1=pd.merge(df_names,df_scores,on="ID" , how="inner")
+merged_df2=pd.merge(df_names,df_scores,on="ID" , how="left")
+print(merged_df1)
+print(merged_df2)
+
+#Task 07 
+df = pd.DataFrame({
+    'st_name': ['Ali', 'Sara', 'Ali'], 
+    'age': ['20', '22', '20'] 
+})
+df=df.rename(columns={"st_name":"Name"})
+df["age"]=df["age"].astype(int)
+df=df.drop_duplicates()
+print(df.info)
