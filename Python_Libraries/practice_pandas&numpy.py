@@ -251,3 +251,18 @@ sales_data = {
 df_store=pd.DataFrame(sales_data)
 summary=df_store.groupby('Store').agg(["sum","mean","max"])
 print(summary)
+
+#Task #05
+movies = {
+    'Genre': ['Action', 'Comedy', 'Action', 'Drama', 'Comedy', 'Drama', 'Action'],
+    'Rating': [8.5, 7.2, 9.0, 8.8, 6.5, 7.5, 8.0],
+    'Budget_M': [150, 50, 200, 30, 40, 20, 180]
+}
+df_movies = pd.DataFrame(movies)
+high_rated_movies=df_movies[df_movies["Rating"]>7.5]
+print(f"High Rated Movies\n{high_rated_movies}")
+grouping_movies=high_rated_movies.groupby("Genre").agg({
+    'Rating': 'mean',
+    'Budget_M': 'sum'
+})
+print(grouping_movies)
