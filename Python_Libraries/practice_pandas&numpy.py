@@ -288,3 +288,27 @@ df=df.rename(columns={"st_name":"Name"})
 df["age"]=df["age"].astype(int)
 df=df.drop_duplicates()
 print(df.info)
+
+data = {
+    'cust_name': ['Ahmed', 'Sana', 'Ahmed', 'Zain', 'Dua'],
+    'purchase_price': ['250', '150', '250', '400', '100'], # String format mein hai
+    'membership': ['Premium', 'Basic', 'Premium', 'Basic', 'Premium']
+}
+df = pd.DataFrame(data)
+df = df.rename(columns={'cust_name': 'Customer'})
+
+# 2. Drop Duplicates
+df = df.drop_duplicates()
+
+# 3. Change Type
+df['purchase_price'] = df['purchase_price'].astype(int)
+
+# 4. Encoding (AI's favorite step)
+df['membership'] = df['membership'].map({'Premium': 1, 'Basic': 0})
+
+# 5. Sorting
+df = df.sort_values(by='purchase_price', ascending=False)
+
+print("--- Cleaned AI Ready Data ---")
+print(df)
+print("\nData Types Check:\n", df.dtypes)
