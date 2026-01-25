@@ -312,3 +312,24 @@ df = df.sort_values(by='purchase_price', ascending=False)
 print("--- Cleaned AI Ready Data ---")
 print(df)
 print("\nData Types Check:\n", df.dtypes)
+
+
+hospital_data = {
+    'p_id': [101, 102, 103, 101, 104, 105],
+    'Blood_Group': ['A+', 'B-', 'A+', 'A+', 'O+', np.nan], # Ek missing value hai
+    'City': ['Karachi', 'Lahore', 'Karachi', 'Karachi', 'Islamabad', 'Lahore'],
+    'Bill_Amount': ['2000', '1500', '3000', '2000', '5000', '2500'] # String type
+}
+df = pd.DataFrame(hospital_data)
+
+df = df.drop_duplicates(subset=['p_id'])
+df['Blood_Group'] = df['Blood_Group'].fillna('Unknown')
+df['Bill_Amount'] = df['Bill_Amount'].astype(int)
+df['Total_Bill'] = df['Bill_Amount'] * 1.10
+
+
+df = pd.get_dummies(df, columns=['City'])
+
+print("--- Final Hospital AI Data ---")
+print(df)
+print("\nFinal Columns:", df.columns.tolist())
