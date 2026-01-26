@@ -288,48 +288,35 @@ df=df.rename(columns={"st_name":"Name"})
 df["age"]=df["age"].astype(int)
 df=df.drop_duplicates()
 print(df.info)
-
+#Task 08
 data = {
     'cust_name': ['Ahmed', 'Sana', 'Ahmed', 'Zain', 'Dua'],
-    'purchase_price': ['250', '150', '250', '400', '100'], # String format mein hai
+    'purchase_price': ['250', '150', '250', '400', '100'],
     'membership': ['Premium', 'Basic', 'Premium', 'Basic', 'Premium']
 }
 df = pd.DataFrame(data)
 df = df.rename(columns={'cust_name': 'Customer'})
-
-# 2. Drop Duplicates
 df = df.drop_duplicates()
-
-# 3. Change Type
 df['purchase_price'] = df['purchase_price'].astype(int)
-
-# 4. Encoding (AI's favorite step)
 df['membership'] = df['membership'].map({'Premium': 1, 'Basic': 0})
-
-# 5. Sorting
 df = df.sort_values(by='purchase_price', ascending=False)
-
 print("--- Cleaned AI Ready Data ---")
 print(df)
 print("\nData Types Check:\n", df.dtypes)
 
-
+#Task 09
 hospital_data = {
     'p_id': [101, 102, 103, 101, 104, 105],
-    'Blood_Group': ['A+', 'B-', 'A+', 'A+', 'O+', np.nan], # Ek missing value hai
+    'Blood_Group': ['A+', 'B-', 'A+', 'A+', 'O+', np.nan], 
     'City': ['Karachi', 'Lahore', 'Karachi', 'Karachi', 'Islamabad', 'Lahore'],
-    'Bill_Amount': ['2000', '1500', '3000', '2000', '5000', '2500'] # String type
+    'Bill_Amount': ['2000', '1500', '3000', '2000', '5000', '2500']  
 }
 df = pd.DataFrame(hospital_data)
-
 df = df.drop_duplicates(subset=['p_id'])
 df['Blood_Group'] = df['Blood_Group'].fillna('Unknown')
 df['Bill_Amount'] = df['Bill_Amount'].astype(int)
 df['Total_Bill'] = df['Bill_Amount'] * 1.10
-
-
 df = pd.get_dummies(df, columns=['City'])
-
 print("--- Final Hospital AI Data ---")
 print(df)
 print("\nFinal Columns:", df.columns.tolist())
