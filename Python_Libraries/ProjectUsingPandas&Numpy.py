@@ -18,7 +18,7 @@ df=df[df['Area_sqft']<10000]
 df['Base_Price']=df['Base_Price'].astype(int)
 df['Total_Tax'] = (df['Base_Price'] * 0.05) + (df['House_Age'] * 100)
 df=pd.get_dummies(df,columns=['City_Zone'])
-numpy_dataset = df.to_numpy()
+numpy_dataset =df[['Area_sqft', 'House_Age', 'Total_Tax']].to_numpy()
 print(df['Total_Tax'])
 print(df)
 print(numpy_dataset)
