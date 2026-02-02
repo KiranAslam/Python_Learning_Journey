@@ -12,15 +12,16 @@ def get_image_and_lebals(path):
     ids=[]
     for image_path in images_paths:
         img_PIL=Image.open(image_path).convert('L')
-        img_numpy=np.array(img_PIL,'unit8')
-        id=int(os.path.split(images_path)[-1].split('.')[1])
+        img_numpy=np.array(img_PIL,'uint8')
+        id=int(os.path.split(image_path)[-1].split('.')[1])
         faces=detector.detectMultiScale(img_numpy)
         for (x,y,w,h) in faces:
             face_samples.append(img_numpy[y:y+h, x:x+w]) 
             ids.append(id)
     return face_samples,ids
 print("Info: Traning is starting...")
-faces,ids=get_image_and_lebals('samples')
+samples_path = 'OpenCV/samples'
+faces,ids=get_image_and_lebals(samples_path)
 recognizer.train(faces,np.array(ids))
 recognizer.write("OpenCV/trainer.yml")
-print(f"\n info {len(np.unique(ids))} faces trained")
+print(f"\nInfo {len(np.unique(ids))} faces trained")
