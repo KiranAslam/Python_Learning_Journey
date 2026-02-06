@@ -20,8 +20,8 @@ def get_image_and_lebals(path):
             ids.append(id)
     return face_samples,ids
 print("Info: Traning is starting...")
-samples_path = 'OpenCV/samples'
+samples_path = 'samples'
 faces,ids=get_image_and_lebals(samples_path)
 recognizer.train(faces,np.array(ids))
-recognizer.write("OpenCV/trainer.yml")
+recognizer.write("trainer.yml")
 print(f"\nInfo {len(np.unique(ids))} faces trained")
