@@ -1,47 +1,47 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Webcam from 'react-webcam';
 import axios from 'axios';
+import './App.css';
 
 function App() {
   const webcamRef = useRef(null);
-  const [result, setResult] = useState("Face Not Detected");
-  const [confidence, setConfidence] = useState(0);
+  const [user, setUser] = useState({ name: "Scanning...", confidence: 0 });
 
-  const capture = useCallback(async () => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    
-    if (imageSrc) {
-      try {
-        const response = await axios.post('http://127.0.0.1:5000/recognize', {
-          image: imageSrc
-        });
-        setResult(response.data.name);
-        setConfidence(response.data.confidence);
-      } catch (error) {
-        console.error("Backend se connect nahi ho raha!", error);
+  const capture = async () => {
+    if (webcamRef.current) {
+      const imageSrc = webcamRef.current.getScreenshot();
+      if (imageSrc) {
+        try {
+          const response = await axios.post('http://127.0.0.1:5000/recognize', {
+            image: imageSrc
+          });
+          setUser({ name: response.data.name, confidence: response.data.confidence });
+        } catch (error) {
+          console.error("Backend Error:", error);
+        }
       }
     }
-  }, [webcamRef]);
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      capture();
-    }, 1000);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(capture, 1000); 
     return () => clearInterval(interval);
-  }, [capture]);
+  }, []);
 
   return (
-    <div style={{ textAlign: 'center', padding: '20px' }}>
-      <h1>Face Recognition System</h1>
-      <Webcam
-        audio={false}
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-        width={400}
-        style={{ borderRadius: '10px' }}
-      />
-      <div style={{ marginTop: '20px' }}>
-        <h3>User: <span style={{ color: 'green' }}>{result}</span></h3>
-        <p>Confidence: {confidence}%</p>
+    <div className="container">
+      <h1>Live Face Recognition</h1>
+      <div className="camera-box">
+        <Webcam
+          audio={false}
+          ref={webcamRef}
+          screenshotFormat="image/jpeg"
+          width={480}
+        />
+      </div>
+      <div className="result-card">
+        <h2>Identify: <span className="highlight">{user.name}</span></h2>
+        <p>Match Score: {user.confidence}%</p>
       </div>
     </div>
   );
