@@ -7,7 +7,7 @@ import os
 
 app = Flask(__name__)
 CORS(app) 
-MODEL_PATH = '../../trainer.yml' 
+MODEL_PATH = 'trainer.yml' 
 CASCADE_PATH = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 if os.path.exists(MODEL_PATH):
