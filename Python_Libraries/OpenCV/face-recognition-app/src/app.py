@@ -4,11 +4,10 @@ import cv2
 import numpy as np
 import base64
 import os
-
 app = Flask(__name__)
 CORS(app) 
 base_dir = os.path.dirname(os.path.abspath(__file__)) 
-MODEL_PATH = os.path.join(base_dir, "trainer.yml")
+MODEL_PATH = os.path.join(base_dir, "../../trainer.yml")
 
 print(f"Searching for trainer at: {MODEL_PATH}")
 CASCADE_PATH = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
@@ -40,6 +39,5 @@ def recognize():
             response = {"name": "Unknown", "confidence": round(100 - confidence)}
             
     return jsonify(response)
-
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
